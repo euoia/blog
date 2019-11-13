@@ -104,7 +104,7 @@ You should be able to run Neovim.app now.
 
 What I did after this was create a separate profile for Neovim in iTerm2 that
 runs the following at startup: `nvim && exit`. This option is under Profiles >
-General as "send text at start) in the iTerm2 (and now Neovim) preferences.
+General as "send text at start") in the iTerm2 (and now Neovim) preferences.
 
 ![iTerm2 config](./iterm2-config.png)
 
