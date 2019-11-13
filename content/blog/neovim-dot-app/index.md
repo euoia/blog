@@ -4,6 +4,8 @@ date: "2019-11-13T10:46:34Z"
 description: Creating a standalone Neovim application.
 ---
 
+![Neovim running as a standalone app](./cover-image.png)
+
 I use Neovim on OS X as my code editor.
 
 I am quite happy to use it in the terminal, but I find it helpful to have a
@@ -32,11 +34,19 @@ These steps have been tested with XCode 11.2.
 
 2. Open XCode and choose "Open another project...". Select the directory where you cloned iTerm2.
 
+![Open another project](./open-another-project.png)
+
 3. Change Bundle ID to (something like) co.uk.cloudship.neovim
+
+![Change bundle ID](./change-bundle-id.png)
 
 4. Under Signing & Capabilities change to “Sign to run locally”
 
+![Sign to run locally](./sign-to-run-locally.png)
+
 5. In the right-hand pane change Name to Neovim
+
+![Change name](./change-name.png)
 
 A window will appear helping you rename all instances of iTerm2 to Neovim.
 
@@ -53,6 +63,8 @@ I used Iconfly to generate AppIcon.appiconset (select generate without scaling).
 Drag the AppIcon.appiconset folder to Xterm.
 
 Remove the old icon set and rename the new one to the old name.
+
+![Update icons](./update-icons.png)
 
 7. I tried building at this point but it failed due to a reference somewhere to iTerm2.pch.
 
@@ -93,4 +105,6 @@ You should be able to run Neovim.app now.
 What I did after this was create a separate profile for Neovim in iTerm2 that
 runs the following at startup: `nvim && exit`. This option is under Profiles >
 General as "send text at start) in the iTerm2 (and now Neovim) preferences.
+
+![iTerm2 config](./iterm2-config.png)
 
