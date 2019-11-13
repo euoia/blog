@@ -1,1 +1,64 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Pickard's Pickle]]></title><description><![CDATA[The personal blog of Jim Pickard.]]></description><link>https://euoia.github.io/blog/</link><generator>RSS for Node</generator><lastBuildDate>Sat, 18 May 2019 22:02:11 GMT</lastBuildDate><item><title><![CDATA[Hello World]]></title><description><![CDATA[This is a test post.]]></description><link>https://euoia.github.io/blog//2019-05-16-hello-world/</link><guid isPermaLink="false">https://euoia.github.io/blog//2019-05-16-hello-world/</guid><pubDate>Sat, 18 May 2019 17:53:43 GMT</pubDate><content:encoded>&lt;p&gt;This is a test post.&lt;/p&gt;</content:encoded></item></channel></rss>
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Pickard's Pickle]]></title><description><![CDATA[The personal blog of Jim Pickard.]]></description><link>https://euoia.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 13 Nov 2019 11:10:49 GMT</lastBuildDate><item><title><![CDATA[Neovim Dot App]]></title><description><![CDATA[I use Neovim on OS X as my code editor. I am quite happy to use it in the terminal, but I find it helpful to have a
+separate application…]]></description><link>https://euoia.github.io/blog/2019-11-13-neovim-dot-app/</link><guid isPermaLink="false">https://euoia.github.io/blog/2019-11-13-neovim-dot-app/</guid><pubDate>Wed, 13 Nov 2019 10:46:34 GMT</pubDate><content:encoded>&lt;p&gt;I use Neovim on OS X as my code editor.&lt;/p&gt;
+&lt;p&gt;I am quite happy to use it in the terminal, but I find it helpful to have a
+separate application that I can run in full screen and can switch to
+independently of iTerm2.&lt;/p&gt;
+&lt;p&gt;I tried some of the standalone Neovim applications, but was generally unhappy
+with them for one reason or another. So I decided to make a standalone version
+that runs inside iTerm2.&lt;/p&gt;
+&lt;p&gt;Running Neovim this way is great because it leverages the power and stability
+of iTerm2. iTerm2 has great support for customization of appearance and
+keyboard rebinding.&lt;/p&gt;
+&lt;p&gt;Here’s how to build a standalone version of Neovim that’s based on iTerm2.&lt;/p&gt;
+&lt;p&gt;I am not a developer of Mac applications, so the following is based on a bit of
+trial and error and fiddling around with XCode. This is the method I’ve used to
+build a standalone version of Neovim several times across several versions of
+Neovim and XCode.&lt;/p&gt;
+&lt;p&gt;These steps have been tested with XCode 11.2.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Clone iTerm2 master from GitHub &lt;a href=&quot;https://github.com/gnachman/iTerm2&quot;&gt;https://github.com/gnachman/iTerm2&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Open XCode and choose “Open another project…“. Select the directory where you cloned iTerm2.&lt;/li&gt;
+&lt;li&gt;Change Bundle ID to (something like) co.uk.cloudship.neovim&lt;/li&gt;
+&lt;li&gt;Under Signing &amp;#x26; Capabilities change to “Sign to run locally”&lt;/li&gt;
+&lt;li&gt;In the right-hand pane change Name to Neovim&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;A window will appear helping you rename all instances of iTerm2 to Neovim.&lt;/p&gt;
+&lt;ol start=&quot;6&quot;&gt;
+&lt;li&gt;Update the icons.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Find Supporting Files &gt; Images &gt; Media.xcassets (you can use the filter at the
+bottom of the file list window)&lt;/p&gt;
+&lt;p&gt;Grab the Neovim icon from here:
+&lt;a href=&quot;https://raw.githubusercontent.com/neovim/neovim.github.io/master/logos/neovim-mark.png&quot;&gt;https://raw.githubusercontent.com/neovim/neovim.github.io/master/logos/neovim-mark.png&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I used Iconfly to generate AppIcon.appiconset (select generate without scaling).&lt;/p&gt;
+&lt;p&gt;Drag the AppIcon.appiconset folder to Xterm.&lt;/p&gt;
+&lt;p&gt;Remove the old icon set and rename the new one to the old name.&lt;/p&gt;
+&lt;ol start=&quot;7&quot;&gt;
+&lt;li&gt;I tried building at this point but it failed due to a reference somewhere to iTerm2.pch.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;I couldn’t find where it was in the XCode interface so I opened a terminal and
+searched inside files:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;iTerm2|master⚡ ⇒ ag iTerm2.pch
+Neovim.xcodeproj/project.pbxproj
+14379:                          GCC_PREFIX_HEADER = sources/iTerm2.pch;
+14434:                          GCC_PREFIX_HEADER = sources/iTerm2.pch;
+14499:                          GCC_PREFIX_HEADER = sources/iTerm2.pch;
+14553:                          GCC_PREFIX_HEADER = sources/iTerm2.pch;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;I ran a command to change references to iTerm2.pch to Neovim.pch:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;iTerm2|master⚡ ⇒ find . -type f -exec gsed -i &amp;quot;s/iTerm2.pch/Neovim.pch/&amp;quot; {} \;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;At this point XCode will recognize that the files on disk have changed. You
+should select the “Revert” option, which loads the project from the files in
+the disk.&lt;/p&gt;
+&lt;ol start=&quot;8&quot;&gt;
+&lt;li&gt;Build the application by hitting ⌘-R.&lt;/li&gt;
+&lt;li&gt;Copy Neovim to applications.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Under Products right click on Neovim.app and select “Show in Finder”.&lt;/p&gt;
+&lt;p&gt;Move Neovim.app to applications.&lt;/p&gt;
+&lt;ol start=&quot;10&quot;&gt;
+&lt;li&gt;All done!&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;You should be able to run Neovim.app now.&lt;/p&gt;
+&lt;p&gt;What I did after this was create a separate profile for Neovim in iTerm2 that
+runs the following at startup: &lt;code class=&quot;language-text&quot;&gt;nvim &amp;amp;&amp;amp; exit&lt;/code&gt;. This option is under Profiles &gt;
+General as “send text at start) in the iTerm2 (and now Neovim) preferences.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Hello World]]></title><description><![CDATA[This is a test post.]]></description><link>https://euoia.github.io/blog/2019-05-16-hello-world/</link><guid isPermaLink="false">https://euoia.github.io/blog/2019-05-16-hello-world/</guid><pubDate>Sat, 18 May 2019 17:53:43 GMT</pubDate><content:encoded>&lt;p&gt;This is a test post.&lt;/p&gt;</content:encoded></item></channel></rss>
