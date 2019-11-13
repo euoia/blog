@@ -1,11 +1,12 @@
 module.exports = {
+  pathPrefix: "/blog",
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
-    author: `Kyle Mathews`,
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
+    title: `Pickard's Pickle`,
+    author: `Jim Pickard`,
+    description: `The personal blog of Jim Pickard.`,
+    siteUrl: `https://euoia.github.io/blog/`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `jickles`,
     },
   },
   plugins: [
