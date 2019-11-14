@@ -97,7 +97,6 @@ Under Products right click on Neovim.app and select “Show in Finder”.
 
 Move Neovim.app to applications.
 
-
 10. All done!
 
 You should be able to run Neovim.app now.
