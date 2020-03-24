@@ -42,7 +42,7 @@ function Bio() {
               and develops software by night.
               {` `}
               <a href={`https://twitter.com/${social.twitter}`}>
-                You should follow him on Twitter
+                You can follow him on Twitter
               </a>
             </p>
           </div>
