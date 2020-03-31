@@ -1,11 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Pickard's Pickle]]></title><description><![CDATA[The personal blog of Jim Pickard.]]></description><link>https://euoia.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 31 Mar 2020 05:44:23 GMT</lastBuildDate><item><title><![CDATA[No title]]></title><description><![CDATA[title: The trouble with Express.js error handling
-date: “2020-03-28T05:44:09Z”
-description: Reducing the verbosity of Express.js error…]]></description><link>https://euoia.github.io/blog/the-trouble-with-express.js-error-handling/</link><guid isPermaLink="false">https://euoia.github.io/blog/the-trouble-with-express.js-error-handling/</guid><content:encoded>&lt;h2&gt;&lt;!--- vim: tw=79 --&gt;&lt;/h2&gt;
-&lt;p&gt;title: The trouble with Express.js error handling
-date: “2020-03-28T05:44:09Z”
-description: Reducing the verbosity of Express.js error handling&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2&gt;Async Code and Express.js&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Pickard's Pickle]]></title><description><![CDATA[The personal blog of Jim Pickard.]]></description><link>https://euoia.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 31 Mar 2020 05:56:17 GMT</lastBuildDate><item><title><![CDATA[The trouble with Express.js error handling]]></title><description><![CDATA[Async Code and Express.js If a promise is rejected in Express, unless it’s handled explicitly, node will
+show an unhandled promise exception…]]></description><link>https://euoia.github.io/blog/the-trouble-with-express.js-error-handling/</link><guid isPermaLink="false">https://euoia.github.io/blog/the-trouble-with-express.js-error-handling/</guid><pubDate>Sat, 28 Mar 2020 05:44:09 GMT</pubDate><content:encoded>&lt;h2&gt;Async Code and Express.js&lt;/h2&gt;
 &lt;p&gt;If a promise is rejected in Express, unless it’s handled explicitly, node will
 show an unhandled promise exception and the browser will hang, not showing any
 response from the server.&lt;/p&gt;
@@ -37,14 +31,30 @@ app.use(function (err, req, res, next) {
 &lt;p&gt;This works, but doesn’t stop execution (so can only be used when execution ends
 anyway).&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;await webShopApi.finalizeOrder(order).catch(e);&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;The solution&lt;/h3&gt;</content:encoded></item><item><title><![CDATA[No title]]></title><description><![CDATA[title: Neovim Dot App
-date: “2019-11-13T10:46:34Z”
-description: Creating a standalone Neovim application.  I use Neovim on OS X as my code…]]></description><link>https://euoia.github.io/blog/neovim-dot-app/</link><guid isPermaLink="false">https://euoia.github.io/blog/neovim-dot-app/</guid><content:encoded>&lt;h2&gt;&lt;!-- vim: tw=79 --&gt;&lt;/h2&gt;
-&lt;p&gt;title: Neovim Dot App
-date: “2019-11-13T10:46:34Z”
-description: Creating a standalone Neovim application.&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;
+&lt;h3&gt;The solution&lt;/h3&gt;</content:encoded></item><item><title><![CDATA[Making Bread]]></title><description><![CDATA[Poolish Made the night before. 500g Strong White Bread Flour 500g 30C Water ¼ tsp Allisons dried instant easy bake yeast Sit covered in…]]></description><link>https://euoia.github.io/blog/making-bread/</link><guid isPermaLink="false">https://euoia.github.io/blog/making-bread/</guid><pubDate>Tue, 24 Mar 2020 06:10:31 GMT</pubDate><content:encoded>&lt;h3&gt;Poolish&lt;/h3&gt;
+&lt;p&gt;Made the night before.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;500g Strong White Bread Flour&lt;/li&gt;
+&lt;li&gt;500g 30C Water&lt;/li&gt;
+&lt;li&gt;¼ tsp Allisons dried instant easy bake yeast&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Sit covered in plastic wrap at room temperature for 12 to 14 hours.&lt;/p&gt;
+&lt;h3&gt;Loaf&lt;/h3&gt;
+&lt;p&gt;Made in the morning.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;500g Strong White Bread Flour&lt;/li&gt;
+&lt;li&gt;21g Salt&lt;/li&gt;
+&lt;li&gt;¾ tsp Allisons dried instant easy bake yeast&lt;/li&gt;
+&lt;li&gt;250g 40C water&lt;/li&gt;
+&lt;li&gt;All of the poolish&lt;/li&gt;
+&lt;li&gt;Add the water to the poolish to loosen it from the sides of the bowl and scrape it into the flour mixture.&lt;/li&gt;
+&lt;li&gt;Keeping a bowl of water nearby to wet your hands, mix the ingredients with your hands by folding and pinching alternately for about 3 minutes, until the ingredients are integrated and there is no apparent dry flour. The dough will be very shaggy.&lt;/li&gt;
+&lt;li&gt;Stretch and fold every 30 minutes for the first 90 minutes.&lt;/li&gt;
+&lt;li&gt;Leave for a further hour.&lt;/li&gt;
+&lt;li&gt;Put dough on floured surface and cut in half. Shape each half into boules and place them seam side down into floured bannetons or floured towel lined bowl.&lt;/li&gt;
+&lt;li&gt;Place dutch oven in oven at 250C. Allow dough to rise for an hour.&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Neovim Dot App]]></title><description><![CDATA[I use Neovim on OS X as my code editor. I am quite happy to use it in the terminal, but I find it helpful to have a
+separate application…]]></description><link>https://euoia.github.io/blog/neovim-dot-app/</link><guid isPermaLink="false">https://euoia.github.io/blog/neovim-dot-app/</guid><pubDate>Wed, 13 Nov 2019 10:46:34 GMT</pubDate><content:encoded>&lt;p&gt;
   &lt;a
     class=&quot;gatsby-resp-image-link&quot;
     href=&quot;/blog/static/5d0d5f73561ef86d9e3e38b3d03577a2/d5c60/cover-image.png&quot;
@@ -359,26 +369,4 @@ General as “send text at start”) in the iTerm2 (and now Neovim) preferences.
   &lt;/span&gt;
   
   &lt;/a&gt;
-    &lt;/p&gt;</content:encoded></item><item><title><![CDATA[Making Bread]]></title><description><![CDATA[Poolish Made the night before. 500g Strong White Bread Flour 500g 30C Water ¼ tsp Allisons dried instant easy bake yeast Sit covered in…]]></description><link>https://euoia.github.io/blog/making-bread/</link><guid isPermaLink="false">https://euoia.github.io/blog/making-bread/</guid><pubDate>Tue, 24 Mar 2020 06:10:31 GMT</pubDate><content:encoded>&lt;h3&gt;Poolish&lt;/h3&gt;
-&lt;p&gt;Made the night before.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;500g Strong White Bread Flour&lt;/li&gt;
-&lt;li&gt;500g 30C Water&lt;/li&gt;
-&lt;li&gt;¼ tsp Allisons dried instant easy bake yeast&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Sit covered in plastic wrap at room temperature for 12 to 14 hours.&lt;/p&gt;
-&lt;h3&gt;Loaf&lt;/h3&gt;
-&lt;p&gt;Made in the morning.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;500g Strong White Bread Flour&lt;/li&gt;
-&lt;li&gt;21g Salt&lt;/li&gt;
-&lt;li&gt;¾ tsp Allisons dried instant easy bake yeast&lt;/li&gt;
-&lt;li&gt;250g 40C water&lt;/li&gt;
-&lt;li&gt;All of the poolish&lt;/li&gt;
-&lt;li&gt;Add the water to the poolish to loosen it from the sides of the bowl and scrape it into the flour mixture.&lt;/li&gt;
-&lt;li&gt;Keeping a bowl of water nearby to wet your hands, mix the ingredients with your hands by folding and pinching alternately for about 3 minutes, until the ingredients are integrated and there is no apparent dry flour. The dough will be very shaggy.&lt;/li&gt;
-&lt;li&gt;Stretch and fold every 30 minutes for the first 90 minutes.&lt;/li&gt;
-&lt;li&gt;Leave for a further hour.&lt;/li&gt;
-&lt;li&gt;Put dough on floured surface and cut in half. Shape each half into boules and place them seam side down into floured bannetons or floured towel lined bowl.&lt;/li&gt;
-&lt;li&gt;Place dutch oven in oven at 250C. Allow dough to rise for an hour.&lt;/li&gt;
-&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Hello World]]></title><description><![CDATA[This is a test post.]]></description><link>https://euoia.github.io/blog/hello-world/</link><guid isPermaLink="false">https://euoia.github.io/blog/hello-world/</guid><pubDate>Sat, 18 May 2019 17:53:43 GMT</pubDate><content:encoded>&lt;p&gt;This is a test post.&lt;/p&gt;</content:encoded></item></channel></rss>
+    &lt;/p&gt;</content:encoded></item><item><title><![CDATA[Hello World]]></title><description><![CDATA[This is a test post.]]></description><link>https://euoia.github.io/blog/hello-world/</link><guid isPermaLink="false">https://euoia.github.io/blog/hello-world/</guid><pubDate>Sat, 18 May 2019 17:53:43 GMT</pubDate><content:encoded>&lt;p&gt;This is a test post.&lt;/p&gt;</content:encoded></item></channel></rss>
