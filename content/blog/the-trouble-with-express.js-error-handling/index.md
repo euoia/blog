@@ -48,6 +48,9 @@ https://dev.to/geoff/writing-asyncawait-middleware-in-express-6i0
 [7] Good article about error handling in express
 https://thecodebarbarian.com/80-20-guide-to-express-error-handling
 
+[8] Another article about error handling in express
+https://www.robinwieruch.de/node-express-error-handling
+
 ### Error handling
 
 Express requires that errors are passed to the `next` function, which is one of the
@@ -94,6 +97,3 @@ anyway).
 ```
 await webShopApi.finalizeOrder(order).catch(e);
 ```
-
-
-### The solution
