@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+FILENAME=$1
+if [[ "$FILENAME" == "" ]]; then
+    echo "Usage: create-post <filename>"
+    exit 1
+fi
+
+mkdir "content/blog/${FILENAME}"
+cp "src/content/template.md" "content/blog/${FILENAME}/index.md"
+
+echo "Now edit content/blog/${FILENAME}/index.md!"
+echo "Date is $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+
