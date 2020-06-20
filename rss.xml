@@ -1,19 +1,50 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Pickard's Pickle]]></title><description><![CDATA[The personal blog of Jim Pickard.]]></description><link>https://euoia.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 31 Mar 2020 05:57:22 GMT</lastBuildDate><item><title><![CDATA[The trouble with Express.js error handling (draft)]]></title><description><![CDATA[Async Code and Express.js If a promise is rejected in Express, unless it’s handled explicitly, node will
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Pickard's Pickle]]></title><description><![CDATA[The personal blog of Jim Pickard.]]></description><link>https://euoia.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 20 Jun 2020 04:15:58 GMT</lastBuildDate><item><title><![CDATA[The trouble with Express.js error handling (draft)]]></title><description><![CDATA[Async Code and Express.js If a promise is rejected in Express, unless it’s handled explicitly, node will
 show an unhandled promise exception…]]></description><link>https://euoia.github.io/blog/the-trouble-with-express.js-error-handling/</link><guid isPermaLink="false">https://euoia.github.io/blog/the-trouble-with-express.js-error-handling/</guid><pubDate>Sat, 28 Mar 2020 05:44:09 GMT</pubDate><content:encoded>&lt;h2&gt;Async Code and Express.js&lt;/h2&gt;
 &lt;p&gt;If a promise is rejected in Express, unless it’s handled explicitly, node will
 show an unhandled promise exception and the browser will hang, not showing any
 response from the server.&lt;/p&gt;
+&lt;h3&gt;References&lt;/h3&gt;
+&lt;p&gt;[1] Express error handling documentation
+&lt;a href=&quot;https://expressjs.com/en/guide/error-handling.html&quot;&gt;https://expressjs.com/en/guide/error-handling.html&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Errors that occur in synchronous code inside route handlers and middleware
+require no extra work. If synchronous code throws an error, then Express will
+catch and process it.&lt;/li&gt;
+&lt;li&gt;Shows the use of a package called method-override without saying anything
+about it in the text.&lt;/li&gt;
+&lt;li&gt;There is some noise in the examples, for example the use of methodOverride()
+which is irrelevant to the examople code.&lt;/li&gt;
+&lt;li&gt;It is not clear at all, but the custom error handler must come &lt;em&gt;after&lt;/em&gt; the
+route handlers. This is discussed here &lt;a href=&quot;https://stackoverflow.com/questions/29700005/express-4-middleware-error-handler-not-being-called&quot;&gt;https://stackoverflow.com/questions/29700005/express-4-middleware-error-handler-not-being-called&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;[2] Express 5 (in alpha since 2014) adds support for returns and rejected promises in the router.
+&lt;a href=&quot;https://github.com/expressjs/express/blob/5.0/History.md&quot;&gt;https://github.com/expressjs/express/blob/5.0/History.md&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;[3] Express 5 tracking issue
+&lt;a href=&quot;https://github.com/expressjs/express/pull/2237&quot;&gt;https://github.com/expressjs/express/pull/2237&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;[4] Express 5 Promises
+&lt;a href=&quot;https://github.com/expressjs/express/issues/2259&quot;&gt;https://github.com/expressjs/express/issues/2259&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;[5] Good article on how to improvess Express error handling
+&lt;a href=&quot;https://nemethgergely.com/error-handling-express-async-await/&quot;&gt;https://nemethgergely.com/error-handling-express-async-await/&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Shows how to return an error object with httpStatusCode.&lt;/li&gt;
+&lt;li&gt;Shows an example of how to wrap the request handler in an method to catch
+rejected promises.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;[6] Article about “async middleware”
+&lt;a href=&quot;https://dev.to/geoff/writing-asyncawait-middleware-in-express-6i0&quot;&gt;https://dev.to/geoff/writing-asyncawait-middleware-in-express-6i0&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;[7] Good article about error handling in express
+&lt;a href=&quot;https://thecodebarbarian.com/80-20-guide-to-express-error-handling&quot;&gt;https://thecodebarbarian.com/80-20-guide-to-express-error-handling&lt;/a&gt;&lt;/p&gt;
 &lt;h3&gt;Error handling&lt;/h3&gt;
 &lt;p&gt;Express requires that errors are passed to the &lt;code class=&quot;language-text&quot;&gt;next&lt;/code&gt; function, which is one of the
 inputs to the request handler.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;app.post(&amp;quot;/checkout&amp;quot;, async (req, res, next) =&amp;gt; {
-  let takeawayData;
-  try {
-    takeawayData = await webShopApi.getTakeawayData();
-  } catch (e) {
-    return next(e);
-  }
-}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;app&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;/checkout&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;req&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; res&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; next&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; responseData&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;try&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    responseData &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; axios&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;https://example.com/give-me-an-error&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;e&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;e&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;And then you define an error handler:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;// Error handler.
 // eslint-disable-next-line no-unused-vars
@@ -31,7 +62,7 @@ app.use(function (err, req, res, next) {
 &lt;p&gt;This works, but doesn’t stop execution (so can only be used when execution ends
 anyway).&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;await webShopApi.finalizeOrder(order).catch(e);&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;The solution&lt;/h3&gt;</content:encoded></item><item><title><![CDATA[Making Bread (draft)]]></title><description><![CDATA[Poolish Made the night before. 500g Strong White Bread Flour 500g 30C Water ¼ tsp Allisons dried instant easy bake yeast Sit covered in…]]></description><link>https://euoia.github.io/blog/making-bread/</link><guid isPermaLink="false">https://euoia.github.io/blog/making-bread/</guid><pubDate>Tue, 24 Mar 2020 06:10:31 GMT</pubDate><content:encoded>&lt;h3&gt;Poolish&lt;/h3&gt;
+&lt;h3&gt;The solution&lt;/h3&gt;</content:encoded></item><item><title><![CDATA[Making Bread]]></title><description><![CDATA[Poolish Made the night before. 500g Strong White Bread Flour 500g 30C Water ¼ tsp Allisons dried instant easy bake yeast Sit covered in…]]></description><link>https://euoia.github.io/blog/making-bread/</link><guid isPermaLink="false">https://euoia.github.io/blog/making-bread/</guid><pubDate>Tue, 24 Mar 2020 06:10:31 GMT</pubDate><content:encoded>&lt;h3&gt;Poolish&lt;/h3&gt;
 &lt;p&gt;Made the night before.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;500g Strong White Bread Flour&lt;/li&gt;
