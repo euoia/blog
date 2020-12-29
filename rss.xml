@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Pickard's Pickle]]></title><description><![CDATA[The personal blog of Jim Pickard.]]></description><link>https://euoia.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 29 Dec 2020 13:29:37 GMT</lastBuildDate><item><title><![CDATA[The trouble with Express.js error handling (draft)]]></title><description><![CDATA[Async Code and Express.js If a promise is rejected in Express, unless it’s handled explicitly, node will
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Pickard's Pickle]]></title><description><![CDATA[The personal blog of Jim Pickard.]]></description><link>https://euoia.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 29 Dec 2020 13:32:08 GMT</lastBuildDate><item><title><![CDATA[The trouble with Express.js error handling (draft)]]></title><description><![CDATA[Async Code and Express.js If a promise is rejected in Express, unless it’s handled explicitly, node will
 show an unhandled promise exception…]]></description><link>https://euoia.github.io/blog/the-trouble-with-express.js-error-handling/</link><guid isPermaLink="false">https://euoia.github.io/blog/the-trouble-with-express.js-error-handling/</guid><pubDate>Sat, 28 Mar 2020 05:44:09 GMT</pubDate><content:encoded>&lt;h2&gt;Async Code and Express.js&lt;/h2&gt;
 &lt;p&gt;If a promise is rejected in Express, unless it’s handled explicitly, node will
 show an unhandled promise exception and the browser will hang, not showing any
@@ -77,13 +77,16 @@ anyway).&lt;/p&gt;
 &lt;li&gt;500g Strong White Bread Flour&lt;/li&gt;
 &lt;li&gt;21g Salt&lt;/li&gt;
 &lt;li&gt;¾ tsp Allisons dried instant easy bake yeast&lt;/li&gt;
-&lt;li&gt;250g 40C water&lt;/li&gt;
+&lt;li&gt;250g 40 °C water&lt;/li&gt;
 &lt;li&gt;All of the poolish&lt;/li&gt;
 &lt;li&gt;Add the water to the poolish to loosen it from the sides of the bowl and scrape it into the flour mixture.&lt;/li&gt;
 &lt;li&gt;Keeping a bowl of water nearby to wet your hands, mix the ingredients with your hands by folding and pinching alternately for about 3 minutes, until the ingredients are integrated and there is no apparent dry flour. The dough will be very shaggy.&lt;/li&gt;
 &lt;li&gt;Stretch and fold every 30 minutes for the first 90 minutes.&lt;/li&gt;
 &lt;li&gt;Leave for a further hour.&lt;/li&gt;
-&lt;li&gt;Put dough on floured surface and cut in half. Shape each half into boules and place them seam side down into floured bannetons or floured towel lined bowl.&lt;/li&gt;
+&lt;li&gt;Put dough on floured surface and cut in half. Shape each half into boules
+and place each boule seam side down into floured bannetons or floured towel
+lined bowl. Alternatively, keep one boule in the fridge for a day and then
+remove an hour before the next step.&lt;/li&gt;
 &lt;li&gt;Set oven to 220 °C Fan (240 °C conventional oven).&lt;/li&gt;
 &lt;li&gt;Place dutch oven in oven and allow an hour to heat up and for the dough to
 rise.&lt;/li&gt;
