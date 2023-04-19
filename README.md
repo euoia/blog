@@ -1,3 +1,11 @@
+## Deprecation Notice
+
+This is my old blog.
+
+The new(er) one is generated using a Joplin plugin and available here: https://github.com/euoia/euoia.github.io
+
+
+
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
   <a href="https://www.gatsbyjs.org">
